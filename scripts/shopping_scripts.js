@@ -42,13 +42,15 @@ function addToTable(product) {
 		cell.textContent = product[property];
 		productRow.appendChild(cell);
 	}
+	var buttonCell = document.createElement("td");
 	var completionButton = document.createElement("button");
 	completionButton.innerHTML = "<i class='fas fa-solid fa-check'></i>";
 	completionButton.classList.add("container");
 	completionButton.onclick = removeProduct;
 	completionButton.style =
 		"background-color: var(--pico-ins-color); padding: 0.2rem; border: 0";
-	productRow.appendChild(completionButton);
+	buttonCell.appendChild(completionButton);
+	productRow.appendChild(buttonCell);
 	document.getElementById("list-body").appendChild(productRow);
 }
 
