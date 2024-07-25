@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="light dark" />
+		<title>Dormitory Management System</title>
+		<!-- <link rel="stylesheet" href="public/style.css"> -->
+		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<script src="../scripts/index.js"></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
+		/>
+		<style>
+			.big-text {
+				font-size: 1.5rem;
+			}
+
+			.big-padding {
+				padding: 0.85rem 0;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="container">
+			<hgroup>
+				<h1>Dormitory Management System</h1>
+				<p>A hub for all your barako needs</p>
+			</hgroup>
+			<nav>
+				<ul>
+					<li><a href="#" data-theme-switcher="auto">Auto</a></li>
+					<li><a href="#" data-theme-switcher="light">Light</a></li>
+					<li><a href="#" data-theme-switcher="dark">Dark</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main class="container">
+			<div class="grid">
+				<a href="recipe-book">
+					<button class="container">
+						<p class="big-text big-padding">Recipe book</p>
+					</button>
+				</a>
+				<a href="shopping-list">
+					<button class="container">
+						<p class="big-text big-padding">Shopping list</p>
+					</button>
+				</a>
+				<a href="cleaning-schedule">
+					<button class="container">
+						<p class="big-text big-padding">Cleaning schedule</p>
+					</button>
+				</a>
+			</div>
+		</main>
+	</body>
+</html>

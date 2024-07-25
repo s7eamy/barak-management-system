@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="light dark" />
+		<title>DMS - Shopping list</title>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<script src="../scripts/shopping_scripts.js" defer></script>
+	</head>
+	<body>
+		<header class="container">
+			<h1>Shopping list</h1>
+		</header>
+
+		<main class="container">
+			<form>
+				<fieldset role="group">
+					<input
+						type="text"
+						id="product"
+						placeholder="Product name"
+					/>
+					<input type="number" id="quantity" placeholder="Quantity" />
+					<button onclick="addProduct(event)">Add</button>
+				</fieldset>
+			</form>
+			<table>
+				<thead>
+					<tr>
+						<th>Product name</th>
+						<th>Quantity</th>
+						<th>Date added</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<tbody id="list-body"></tbody>
+			</table>
+		</main>
+
+		<footer class="container">
+			<a href="..">Back to home</a>
+		</footer>
+	</body>
+</html>
