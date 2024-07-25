@@ -33,12 +33,8 @@ app.get("/shopping-list", (req, res) => {
 	res.sendFile(__dirname + "/views/shopping.html");
 });
 
-app.post("/add-product", function (req, res) {
-	const product = new Product({
-		name: req.body.name,
-		quantity: req.body.quantity,
-		date: req.body.date,
-	});
+app.post("/products", function (req, res) {
+	const product = new Product(req.body);
 	product.save().catch((err) => console.error("Error: " + err));
 });
 
@@ -50,6 +46,10 @@ app.get("/products", (req, res) => {
 		.catch((err) => {
 			console.log(err);
 		});
+});
+
+app.delete("/products", (req, res) => {
+	Product.deleteOne(req.body).catch((err) => console.error("Error: " + err));
 });
 
 // Start the server

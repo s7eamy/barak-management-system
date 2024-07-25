@@ -13,7 +13,7 @@ function addProduct(event) {
 		date: currentDate,
 	};
 	addToTable(product);
-	fetch("/add-product", {
+	fetch("/products", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -28,10 +28,31 @@ function addProduct(event) {
 			console.error("Error: " + error);
 		});
 	document.getElementById("product").value = "";
+	document.getElementById("quantity").value = "";
 }
 
-function removeProduct() {
-	console.log("Pressed remove product!");
+function removeProduct(event) {
+	const productRow = event.srcElement.parentElement.parentElement; // ugly, but gets the job done
+	const cells = productRow.childNodes;
+	const product = {
+		name: cells[0].textContent,
+		quantity: cells[1].textContent,
+		date: cells[2].textContent,
+	};
+	console.log(product);
+	fetch("/products", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(product),
+	})
+		.then((response) => response)
+		.then((data) => console.log(data))
+		.catch((error) => console.error("Error: " + error));
+	productRow.classList.add("animate__animated");
+	productRow.classList.add("animate__backOutLeft");
+	productRow.onanimationend = (event) => event.srcElement.remove();
 }
 
 function addToTable(product) {
