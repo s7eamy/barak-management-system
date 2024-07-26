@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const productRoutes = require("./routes/products");
+const recipeRoutes = require("./routes/recipes");
 require("dotenv").config({
 	path: "secrets.env",
 });
@@ -36,6 +37,9 @@ app.get("/recipe-book", (req, res) => {
 
 // Set up shopping list routes
 app.use("/products", productRoutes);
+
+// Set up recipe book routes
+app.use("/recipes", recipeRoutes);
 
 // Start the server
 app.listen(3000, () => {
