@@ -30,6 +30,10 @@ app.get("/shopping-list", (req, res) => {
 	res.sendFile(__dirname + "/views/shopping.html");
 });
 
+app.get("/recipe-book", (req, res) => {
+	res.sendFile(__dirname + "/views/recipe_book.html");
+});
+
 // Set up shopping list routes
 app.use("/products", productRoutes);
 
