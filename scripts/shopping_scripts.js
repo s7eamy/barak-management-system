@@ -24,12 +24,10 @@ function addProduct(event) {
 		},
 		body: JSON.stringify(product),
 	})
-		.then((response) => response)
-		.then((data) => {
-			console.log(data);
-		})
+		.then((response) => response.json())
+		.then((data) => console.log(data))
 		.catch((error) => {
-			console.error("Error: " + error);
+			console.error("Error:", error);
 		});
 	document.getElementById("product").value = "";
 	document.getElementById("quantity").value = "";
@@ -48,7 +46,6 @@ function removeProduct(event) {
 		quantity: cells[1].textContent,
 		date: cells[2].textContent,
 	};
-	console.log(product);
 	fetch("/products", {
 		method: "DELETE",
 		headers: {
@@ -56,9 +53,9 @@ function removeProduct(event) {
 		},
 		body: JSON.stringify(product),
 	})
-		.then((response) => response)
+		.then((response) => response.json())
 		.then((data) => console.log(data))
-		.catch((error) => console.error("Error: " + error));
+		.catch((error) => console.error("Error:", error));
 	productRow.classList.add("animate__animated", "animate__backOutLeft");
 	productRow.onanimationend = (event) => event.srcElement.remove();
 }
