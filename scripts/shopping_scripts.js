@@ -31,8 +31,6 @@ function addProduct(event) {
 	document.getElementById("quantity").value = "";
 }
 
-// TODO: adding/removing elements and reloading page causes issues
-
 function removeProduct(event) {
 	event.preventDefault();
 	const productRow = event.srcElement.parentElement.parentElement; // ugly, but gets the job done
@@ -53,8 +51,7 @@ function removeProduct(event) {
 		.then((response) => response)
 		.then((data) => console.log(data))
 		.catch((error) => console.error("Error: " + error));
-	productRow.classList.add("animate__animated");
-	productRow.classList.add("animate__backOutLeft");
+	productRow.classList.add("animate__animated", "animate__backOutLeft");
 	productRow.onanimationend = (event) => event.srcElement.remove();
 }
 
