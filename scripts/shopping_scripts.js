@@ -12,7 +12,7 @@ function addProduct(event) {
 		quantity: quantityInput,
 		date: currentDate,
 	};
-	addToTable(product);
+	addToTable(product, false);
 	fetch("/products", {
 		method: "POST",
 		headers: {
@@ -55,7 +55,7 @@ function removeProduct(event) {
 	productRow.onanimationend = (event) => event.srcElement.remove();
 }
 
-function addToTable(product) {
+function addToTable(product, exists) {
 	var productRow = document.createElement("tr");
 	for (const property in product) {
 		if (property === "_id" || property === "__v") continue;
@@ -72,6 +72,8 @@ function addToTable(product) {
 		"background-color: var(--pico-ins-color); padding: 0.2rem; border: 0";
 	buttonCell.appendChild(completionButton);
 	productRow.appendChild(buttonCell);
+	if (!exists)
+		productRow.classList.add("animate__animated", "animate__backInRight");
 	document.getElementById("list-body").appendChild(productRow);
 }
 
@@ -79,7 +81,7 @@ window.onload = () => {
 	fetch("/products")
 		.then((response) => response.json())
 		.then((products) => {
-			products.forEach((product) => addToTable(product));
+			products.forEach((product) => addToTable(product, true));
 		})
 		.catch((err) => console.error("Error: " + err));
 };
