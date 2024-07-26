@@ -31,7 +31,10 @@ function addProduct(event) {
 	document.getElementById("quantity").value = "";
 }
 
+// TODO: adding/removing elements and reloading page causes issues
+
 function removeProduct(event) {
+	event.preventDefault();
 	const productRow = event.srcElement.parentElement.parentElement; // ugly, but gets the job done
 	const cells = productRow.childNodes;
 	const product = {
