@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="../public/style.css" />
 
 		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<script src="../scripts/recipe_scripts.js" defer></script>
 		<title>DMS - Add recipe</title>
 	</head>
 	<body>
@@ -23,20 +24,59 @@
 		<main class="container">
 			<form>
 				<h3>Name</h3>
-				<input type="text" />
+				<input
+					name="name"
+					type="text"
+					placeholder="Enter name here..."
+				/>
 
 				<h3>Short description</h3>
-				<input type="textarea" />
+				<textarea
+					name="description"
+					type="textarea"
+					rows="5"
+					placeholder="Add a description for your recipe..."
+				></textarea>
 
 				<h3>Ingredients needed</h3>
-				<input type="text" />
+				<ol id="ingredient-list">
+					<li>
+						<input
+							type="text"
+							placeholder="Add ingredient here..."
+							name="ingredient"
+						/>
+					</li>
+				</ol>
+				<button id="add-ingredient" class="contrast" type="button">
+					Add ingredient
+				</button>
 
 				<h3>Preparation time (in minutes)</h3>
-				<input type="number" />
+				<input
+					name="prep-time"
+					type="number"
+					placeholder="Specify minutes here..."
+				/>
 
 				<h3>Preparation instructions</h3>
-				<input type="textarea" />
+				<ol id="instruction-list">
+					<li>
+						<textarea
+							rows="2"
+							placeholder="Enter instruction here..."
+							name="instruction"
+						></textarea>
+					</li>
+				</ol>
+				<button id="add-instruction" class="contrast" type="button">
+					Add instruction
+				</button>
 			</form>
 		</main>
+		<footer>
+			<button>Submit recipe</button>
+			<button class="secondary">Discard</button>
+		</footer>
 	</body>
 </html>

@@ -1,0 +1,65 @@
+// TODO: clean up event prevent defaults
+
+function initializeEventHandlers() {
+	const instructionBtn = document.getElementById("add-instruction");
+	instructionBtn.addEventListener("click", (event) => {
+		event.preventDefault();
+		appendInstructionField(event);
+	});
+
+	const ingredientBtn = document.getElementById("add-ingredient");
+	ingredientBtn.addEventListener("click", (event) => {
+		event.preventDefault();
+		appendIngredientField(event);
+	});
+
+	const instructionList = document.getElementById("instruction-list");
+	instructionList.addEventListener("keydown", (event) => {
+		if (event.target.name === "instruction" && event.key === "Enter") {
+			event.preventDefault();
+			appendInstructionField(event);
+		}
+	});
+
+	const ingredientList = document.getElementById("ingredient-list");
+	ingredientList.addEventListener("keydown", (event) => {
+		if (event.target.name === "ingredient" && event.key === "Enter") {
+			event.preventDefault();
+			appendIngredientField(event);
+		}
+	});
+}
+
+function appendInstructionField(event) {
+	event.preventDefault();
+	const list = document.getElementById("instruction-list");
+	const item = document.createElement("li");
+	const textarea = document.createElement("textarea");
+
+	textarea.rows = 2;
+	textarea.placeholder = "Enter instruction here...";
+	textarea.name = "instruction";
+
+	item.appendChild(textarea);
+	list.appendChild(item);
+
+	textarea.focus();
+}
+
+function appendIngredientField(event) {
+	event.preventDefault();
+	const list = document.getElementById("ingredient-list");
+	const item = document.createElement("li");
+	const input = document.createElement("input");
+
+	input.type = "text";
+	input.placeholder = "Add ingredient here...";
+	input.name = "ingredient";
+
+	item.appendChild(input);
+	list.appendChild(item);
+
+	input.focus();
+}
+
+document.addEventListener("DOMContentLoaded", initializeEventHandlers);
