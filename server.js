@@ -35,6 +35,10 @@ app.get("/recipe-book", (req, res) => {
 	res.sendFile(__dirname + "/views/recipe_book.html");
 });
 
+app.get("/recipe-book/add-recipe", (req, res) => {
+	res.sendFile(__dirname + "/views/add_recipe.html");
+});
+
 // Set up shopping list routes
 app.use("/products", productRoutes);
 
