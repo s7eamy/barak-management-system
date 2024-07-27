@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<!-- CSS style library-->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
+		/>
+		<!-- custom css -->
+		<link rel="stylesheet" href="../public/style.css" />
+
+		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<title>DMS - Add recipe</title>
+	</head>
+	<body>
+		<header class="container">
+			<h1>Add your recipe</h1>
+			<a href=".">Back to recipe book</a>
+		</header>
+		<main class="container">
+			<form>
+				<h3>Name</h3>
+				<input type="text" />
+
+				<h3>Short description</h3>
+				<input type="textarea" />
+
+				<h3>Ingredients needed</h3>
+				<input type="text" />
+
+				<h3>Preparation time (in minutes)</h3>
+				<input type="number" />
+
+				<h3>Preparation instructions</h3>
+				<input type="textarea" />
+			</form>
+		</main>
+	</body>
+</html>
