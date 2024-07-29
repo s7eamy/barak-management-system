@@ -1,22 +1,17 @@
-// TODO: clean up event prevent defaults
-
 function initializeEventHandlers() {
 	const instructionBtn = document.getElementById("add-instruction");
 	instructionBtn.addEventListener("click", (event) => {
-		event.preventDefault();
 		appendInstructionField(event);
 	});
 
 	const ingredientBtn = document.getElementById("add-ingredient");
 	ingredientBtn.addEventListener("click", (event) => {
-		event.preventDefault();
 		appendIngredientField(event);
 	});
 
 	const instructionList = document.getElementById("instruction-list");
 	instructionList.addEventListener("keydown", (event) => {
 		if (event.target.name === "instruction" && event.key === "Enter") {
-			event.preventDefault();
 			appendInstructionField(event);
 		}
 	});
@@ -24,7 +19,6 @@ function initializeEventHandlers() {
 	const ingredientList = document.getElementById("ingredient-list");
 	ingredientList.addEventListener("keydown", (event) => {
 		if (event.target.name === "ingredient" && event.key === "Enter") {
-			event.preventDefault();
 			appendIngredientField(event);
 		}
 	});
