@@ -16,6 +16,20 @@ router.get("/", (req, res) => {
 		.catch((err) => console.error("Error:", err));
 });
 
-router.delete("/", (req, res) => {});
+router.delete("/", (req, res) => {
+	console.log("Attempting to delete all recipes from database!");
+	Recipe.deleteMany({})
+		.then(() =>
+			res
+				.status(200)
+				.send({ message: "All recipes deleted successfully!" })
+		)
+		.catch((err) => {
+			console.error("Error:", err);
+			res.status(500).send({
+				error: "An error occurred while deleting recipes.",
+			});
+		});
+});
 
 module.exports = router;
