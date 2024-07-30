@@ -1,6 +1,7 @@
 // Require Express and Mongoose modules
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const productRoutes = require("./routes/products");
 const recipeRoutes = require("./routes/recipes");
 require("dotenv").config({
@@ -18,7 +19,8 @@ mongoose
 	.catch((err) => console.error("MongoDB connection error: " + err));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/public", express.static(__dirname + "/public"));
 app.use("/scripts", express.static(__dirname + "/scripts"));
 
