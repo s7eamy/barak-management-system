@@ -3,9 +3,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const RecipeSchema = new Schema({
 	name: String,
-	tags: [String], // could be difficulty, breakfast/lunch/dinner, etc
-	ingredients: [String],
-	prep_time: Number,
+	description: String,
+	tag: [String], // could be difficulty, breakfast/lunch/dinner, etc
+	ingredient: [String],
+	time: Number,
+	instruction: [String],
 });
 const Recipe = mongoose.model("Recipe", RecipeSchema);
 module.exports = Recipe;
