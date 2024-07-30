@@ -79,11 +79,4 @@ function addRecipe(event) {
 		});
 }
 
-function deleteRecipes(event) {
-	event.preventDefault();
-	fetch("../recipes", {
-		method: "DELETE",
-	});
-}
-
 document.addEventListener("DOMContentLoaded", initializeEventHandlers);

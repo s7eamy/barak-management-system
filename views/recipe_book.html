@@ -25,6 +25,7 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		/>
 		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<script src="../scripts/recipe_book_scripts.js"></script>
 
 		<style>
 			.recipe-grid {
@@ -41,6 +42,9 @@
 			<a href="/recipe-book/add-recipe">
 				<button>Add recipe</button>
 			</a>
+			<button onclick="deleteRecipes(event)" class="secondary">
+				Delete all recipes
+			</button>
 		</header>
 
 		<main class="container">
