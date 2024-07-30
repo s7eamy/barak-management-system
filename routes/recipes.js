@@ -17,7 +17,6 @@ router.get("/", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-	console.log("Attempting to delete all recipes from database!");
 	Recipe.deleteMany({})
 		.then(() =>
 			res
