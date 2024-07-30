@@ -56,4 +56,27 @@ function appendIngredientField(event) {
 	input.focus();
 }
 
+function addRecipe(event) {
+	event.preventDefault();
+	const form = event.target;
+	const formData = new FormData(form);
+
+	fetch(form.action, {
+		method: form.method,
+		body: formData,
+	})
+		.then((response) => {
+			if (response.ok) {
+				form.reset();
+				alert("Recipe added successfully!");
+			} else {
+				alert("Failed to submit recipe.");
+			}
+		})
+		.catch((err) => {
+			console.error("Error:", err);
+			alert("An error occured while submitting the recipe.");
+		});
+}
+
 document.addEventListener("DOMContentLoaded", initializeEventHandlers);

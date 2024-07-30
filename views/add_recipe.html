@@ -22,7 +22,12 @@
 			<a href=".">Back to recipe book</a>
 		</header>
 		<main class="container">
-			<form>
+			<form
+				action="../recipes"
+				method="post"
+				onsubmit="addRecipe(event)"
+				id="recipe-form"
+			>
 				<h3>Name</h3>
 				<input
 					name="name"
@@ -37,6 +42,16 @@
 					rows="5"
 					placeholder="Add a description for your recipe..."
 				></textarea>
+
+				<h3>Tags</h3>
+				<fieldset name="tags">
+					<input type="checkbox" value="breakfast" name="tag" />
+					<label htmlFor="tag">Breakfast</label>
+					<input type="checkbox" value="lunch" name="tag" />
+					<label htmlFor="tag">Lunch</label>
+					<input type="checkbox" value="dinner" name="tag" />
+					<label htmlFor="tag">Dinner</label>
+				</fieldset>
 
 				<h3>Ingredients needed</h3>
 				<ol id="ingredient-list">
@@ -54,7 +69,7 @@
 
 				<h3>Preparation time (in minutes)</h3>
 				<input
-					name="prep-time"
+					name="time"
 					type="number"
 					placeholder="Specify minutes here..."
 				/>
@@ -72,11 +87,13 @@
 				<button id="add-instruction" class="contrast" type="button">
 					Add instruction
 				</button>
+
+				<input type="submit" value="Submit recipe" />
+				<a href=".">
+					<button class="secondary container">Discard</button>
+				</a>
 			</form>
 		</main>
-		<footer>
-			<button>Submit recipe</button>
-			<button class="secondary">Discard</button>
-		</footer>
+		<footer></footer>
 	</body>
 </html>
