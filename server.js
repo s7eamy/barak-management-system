@@ -1,7 +1,9 @@
 // Require Express and Mongoose modules
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const productRoutes = require("./routes/products");
+const recipeRoutes = require("./routes/recipes");
 require("dotenv").config({
 	path: "secrets.env",
 });
@@ -17,7 +19,8 @@ mongoose
 	.catch((err) => console.error("MongoDB connection error: " + err));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/public", express.static(__dirname + "/public"));
 app.use("/scripts", express.static(__dirname + "/scripts"));
 
@@ -30,8 +33,19 @@ app.get("/shopping-list", (req, res) => {
 	res.sendFile(__dirname + "/views/shopping.html");
 });
 
+app.get("/recipe-book", (req, res) => {
+	res.sendFile(__dirname + "/views/recipe_book.html");
+});
+
+app.get("/recipe-book/add-recipe", (req, res) => {
+	res.sendFile(__dirname + "/views/add_recipe.html");
+});
+
 // Set up shopping list routes
 app.use("/products", productRoutes);
+
+// Set up recipe book routes
+app.use("/recipes", recipeRoutes);
 
 // Start the server
 app.listen(3000, () => {
