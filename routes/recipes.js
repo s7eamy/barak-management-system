@@ -8,6 +8,7 @@ const upload = multer();
 router.post("/", upload.none(), (req, res) => {
 	const recipe = new Recipe(req.body);
 	recipe.save().catch((err) => console.error("Error:", err));
+	res.sendStatus(200);
 });
 
 router.get("/", (req, res) => {

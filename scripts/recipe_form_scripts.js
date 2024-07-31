@@ -69,6 +69,7 @@ function addRecipe(event) {
 			if (response.ok) {
 				form.reset();
 				alert("Recipe added successfully!");
+				window.location.href = "/recipe-book";
 			} else {
 				alert("Failed to submit recipe.");
 			}
