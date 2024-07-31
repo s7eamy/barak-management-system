@@ -1,10 +1,11 @@
-// Require Express and Mongoose modules
+// Require Express, Mongoose modules, require shopping-list routes
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/products");
 const recipeRoutes = require("./routes/recipes");
 require("dotenv").config({
+	// Get MongoDB connection URI from secret environment vars
 	path: "secrets.env",
 });
 
@@ -18,6 +19,7 @@ mongoose
 	.then(() => console.log("MongoDB connected successfully!"))
 	.catch((err) => console.error("MongoDB connection error: " + err));
 
+// Set up middleware
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

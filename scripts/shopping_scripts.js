@@ -1,3 +1,7 @@
+/**
+ * Adds a product to shopping list by getting inputs from document
+ * @param {Event} event Mouse click event from pressing the button
+ */
 function addProduct(event) {
 	event.preventDefault();
 	const productInput = document.getElementById("product").value;
@@ -20,17 +24,19 @@ function addProduct(event) {
 		},
 		body: JSON.stringify(product),
 	})
-		.then((response) => response)
-		.then((data) => {
-			console.log(data);
-		})
+		.then((response) => response.json())
+		.then((data) => console.log(data))
 		.catch((error) => {
-			console.error("Error: " + error);
+			console.error("Error:", error);
 		});
 	document.getElementById("product").value = "";
 	document.getElementById("quantity").value = "";
 }
 
+/**
+ * Removes product from shopping list by finding the button's parent row and identifying product from it. Deletes the HTML table row
+ * @param {Event} event
+ */
 function removeProduct(event) {
 	event.preventDefault();
 	const productRow = event.srcElement.parentElement.parentElement; // ugly, but gets the job done
@@ -40,7 +46,6 @@ function removeProduct(event) {
 		quantity: cells[1].textContent,
 		date: cells[2].textContent,
 	};
-	console.log(product);
 	fetch("/products", {
 		method: "DELETE",
 		headers: {
@@ -48,21 +53,30 @@ function removeProduct(event) {
 		},
 		body: JSON.stringify(product),
 	})
-		.then((response) => response)
+		.then((response) => response.json())
 		.then((data) => console.log(data))
-		.catch((error) => console.error("Error: " + error));
+		.catch((error) => console.error("Error:", error));
 	productRow.classList.add("animate__animated", "animate__backOutLeft");
 	productRow.onanimationend = (event) => event.srcElement.remove();
 }
 
+/**
+ * Adds product to HTML table
+ * @param {Object} product Product object with name, quantity and date properties
+ * @param {Boolean} exists True if product already exists in db, false otherwise
+ */
 function addToTable(product, exists) {
 	var productRow = document.createElement("tr");
+
+	// add product properties
 	for (const property in product) {
 		if (property === "_id" || property === "__v") continue;
 		var cell = document.createElement("td");
 		cell.textContent = product[property];
 		productRow.appendChild(cell);
 	}
+
+	// add completion button which deletes product
 	var buttonCell = document.createElement("td");
 	var completionButton = document.createElement("button");
 	completionButton.innerHTML = "<i class='fas fa-solid fa-check'></i>";
@@ -72,8 +86,11 @@ function addToTable(product, exists) {
 		"background-color: var(--pico-ins-color); padding: 0.2rem; border: 0";
 	buttonCell.appendChild(completionButton);
 	productRow.appendChild(buttonCell);
+
+	// if product is new, then add entrance animation
 	if (!exists)
 		productRow.classList.add("animate__animated", "animate__backInRight");
+
 	document.getElementById("list-body").appendChild(productRow);
 }
 
