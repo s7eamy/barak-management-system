@@ -31,6 +31,20 @@
 			.recipe-grid {
 				grid-template-columns: 1fr 1fr 1fr;
 			}
+
+			/* For medium screens (tablets) */
+			@media (max-width: 890px) {
+				.recipe-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			/* For small screens (mobile phones) */
+			@media (max-width: 620px) {
+				.recipe-grid {
+					grid-template-columns: 1fr;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -48,71 +62,7 @@
 		</header>
 
 		<main class="container">
-			<div class="grid recipe-grid">
-				<article>
-					<header>
-						<div>Badges</div>
-						<h3>Recipe 1</h3>
-					</header>
-					<main>
-						Est officia qui dolores esse ut praesentium dolore
-						impedit. Expedita eveniet sint architecto aliquid
-						placeat eum aut aut. Et temporibus amet veniam
-						repudiandae qui. Laborum ab quo beatae laudantium amet
-						aliquid natus.
-					</main>
-					<footer>
-						<button class="secondary">Read more</button>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<div>Badges</div>
-						<h3>Recipe 1</h3>
-					</header>
-					<main>
-						Est officia qui dolores esse ut praesentium dolore
-						impedit. Expedita eveniet sint architecto aliquid
-						placeat eum aut aut. Et temporibus amet veniam
-						repudiandae qui. Laborum ab quo beatae laudantium amet
-						aliquid natus.
-					</main>
-					<footer>
-						<button class="secondary">Read more</button>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<div>Badges</div>
-						<h3>Recipe 1</h3>
-					</header>
-					<main>
-						Est officia qui dolores esse ut praesentium dolore
-						impedit. Expedita eveniet sint architecto aliquid
-						placeat eum aut aut. Et temporibus amet veniam
-						repudiandae qui. Laborum ab quo beatae laudantium amet
-						aliquid natus.
-					</main>
-					<footer>
-						<button class="secondary">Read more</button>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<div>Badges</div>
-						<h3>Recipe 1</h3>
-					</header>
-					<main>
-						Est officia qui dolores esse ut praesentium dolore
-						impedit. Expedita eveniet sint architecto aliquid
-						placeat eum aut aut. Et temporibus amet veniam
-						repudiandae qui. Laborum ab quo beatae laudantium amet
-						aliquid natus.
-					</main>
-					<footer>
-						<button class="secondary">Read more</button>
-					</footer>
-				</article>
+			<div class="grid recipe-grid" id="recipe-grid">
 				<article>
 					<header>
 						<div>Badges</div>

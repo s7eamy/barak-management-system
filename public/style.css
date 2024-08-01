@@ -2,3 +2,11 @@ body {
 	padding-left: 10vw;
 	padding-right: 10vw;
 }
+
+.badge {
+	margin-right: calc(var(--pico-spacing) / 2);
+}
+
+a {
+	margin-right: calc(var(--pico-spacing));
+}
