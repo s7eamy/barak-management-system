@@ -18,16 +18,15 @@ router.get("/", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-	Recipe.deleteMany({})
+	console.log(req.body);
+	Recipe.deleteOne(req.body)
 		.then(() =>
-			res
-				.status(200)
-				.send({ message: "All recipes deleted successfully!" })
+			res.status(200).send({ message: "Recipe deleted successfully!" })
 		)
 		.catch((err) => {
 			console.error("Error:", err);
 			res.status(500).send({
-				error: "An error occurred while deleting recipes.",
+				error: "An error occurred while deleting recipe.",
 			});
 		});
 });

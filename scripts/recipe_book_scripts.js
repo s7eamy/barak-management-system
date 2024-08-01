@@ -6,7 +6,6 @@ function deleteRecipes(event) {
 }
 
 function fetchStoredRecipes() {
-	var recipes;
 	fetch("../recipes", {
 		method: "GET",
 		headers: {
@@ -15,6 +14,25 @@ function fetchStoredRecipes() {
 	})
 		.then((response) => response.json())
 		.then((recipes) => showRecipes(recipes))
+		.catch((err) => console.error("Error:", err));
+}
+
+function deleteRecipe(event) {
+	const recipeName =
+		event.target.parentElement.parentElement.querySelector(
+			"h3"
+		).textContent;
+	console.log(recipeName);
+	fetch("../recipes", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			name: recipeName,
+		}),
+	})
+		.then((response) => response)
 		.catch((err) => console.error("Error:", err));
 }
 
@@ -68,6 +86,8 @@ function showRecipes(recipes) {
 		const deleteLink = document.createElement("a");
 		deleteLink.textContent = "Delete recipe";
 		deleteLink.classList.add("secondary");
+		deleteLink.onclick = deleteRecipe;
+		deleteLink.href = "#";
 		footer.appendChild(deleteLink);
 
 		recipesElem.appendChild(recipeElem);
