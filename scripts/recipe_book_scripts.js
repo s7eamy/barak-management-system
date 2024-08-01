@@ -22,7 +22,6 @@ function deleteRecipe(event) {
 		event.target.parentElement.parentElement.querySelector(
 			"h3"
 		).textContent;
-	console.log(recipeName);
 	fetch("../recipes", {
 		method: "DELETE",
 		headers: {
@@ -32,7 +31,9 @@ function deleteRecipe(event) {
 			name: recipeName,
 		}),
 	})
-		.then((response) => response)
+		.then((response) => {
+			if (response.ok) window.location.reload();
+		})
 		.catch((err) => console.error("Error:", err));
 }
 
