@@ -1,10 +1,3 @@
-function deleteRecipes(event) {
-	event.preventDefault();
-	fetch("../recipes", {
-		method: "DELETE",
-	});
-}
-
 function fetchStoredRecipes() {
 	fetch("../recipes", {
 		method: "GET",
