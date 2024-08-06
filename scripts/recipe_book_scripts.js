@@ -36,6 +36,7 @@ function showRecipes(recipes) {
 			name: recipe.name,
 			tag: recipe.tag,
 			description: recipe.description,
+			id: recipe.id,
 		};
 	});
 	const recipesElem = document.getElementById("recipe-grid");
@@ -75,6 +76,7 @@ function showRecipes(recipes) {
 		const readMoreLink = document.createElement("a");
 		readMoreLink.textContent = "Read more";
 		readMoreLink.classList.add("primary");
+		readMoreLink.href = `/recipes/${recipe.id}`;
 		footer.appendChild(readMoreLink);
 
 		const deleteLink = document.createElement("a");
