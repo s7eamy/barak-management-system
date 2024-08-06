@@ -8,6 +8,7 @@ const RecipeSchema = new Schema({
 	ingredient: [String],
 	time: Number,
 	instruction: [String],
+	id: String,
 });
 const Recipe = mongoose.model("Recipe", RecipeSchema);
 module.exports = Recipe;
