@@ -22,6 +22,13 @@ router.get("/", (req, res) => {
 		.catch((err) => console.error("Error:", err));
 });
 
+router.get("/:id", (req, res) => {
+	const recipeId = req.params.id;
+	Recipe.findOne({ id: recipeId })
+		.then((recipe) => res.send(recipe))
+		.catch((err) => console.error("Error:", err));
+});
+
 router.delete("/", (req, res) => {
 	console.log(req.body);
 	Recipe.deleteOne(req.body)
