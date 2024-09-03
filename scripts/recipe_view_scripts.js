@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.getElementById("time").innerText = recipe.time;
 
 			const tagsEle = document.getElementById("tags");
-			recipe.tags.forEach((tag) => {
-				tagEle = document.createElement("span");
+			recipe.tag.forEach((tag) => {
+				const tagEle = document.createElement("span");
 				tagEle.innerText = tag;
 				tagsEle.appendChild(tagEle);
 			});
@@ -18,15 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
 				recipe.description;
 
 			const ingredientsEle = document.getElementById("ingredients");
-			recipe.ingredients.forEach((ingredient) => {
-				ingEle = document.createElement("li");
+			recipe.ingredient.forEach((ingredient) => {
+				const ingEle = document.createElement("li");
 				ingEle.innerText = ingredient;
 				ingredientsEle.appendChild(ingEle);
 			});
 
 			const instructionsEle = document.getElementById("instructions");
-			recipe.instructions.forEach((instruction) => {
-				insEle = document.createElement("li");
+			recipe.instruction.forEach((instruction) => {
+				const insEle = document.createElement("li");
 				insEle.innerText = instruction;
 				instructionsEle.appendChild(insEle);
 			});
