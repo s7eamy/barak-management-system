@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="color-scheme" content="light dark" />
+		<title>DMS - Recipe book</title>
+		<!-- CSS style library-->
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css"
+		/>
+		<!-- custom css -->
+		<link rel="stylesheet" href="../public/style.css" />
+		<!-- Icon library -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<!-- CSS animations library-->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+		<script src="../scripts/minimal_theme_switcher.js" defer></script>
+		<script src="../scripts/recipe_view_scripts.js"></script>
+	</head>
+	<body>
+		<header class="container">
+			<h1 id="name">Recipe name here</h1>
+			<div id="tags"></div>
+			<span id="time"></span>
+			<a href="..">Back to recipe book</a>
+			<br />
+			<br />
+			<a href="">
+				<button>Edit recipe</button>
+			</a>
+		</header>
+
+		<main class="container">
+			<p id="description"></p>
+			<ul id="ingredients"></ul>
+			<ol id="instructions"></ol>
+		</main>
+	</body>
+</html>
