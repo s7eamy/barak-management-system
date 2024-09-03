@@ -5,7 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		.then((recipe) => {
 			document.getElementById("name").innerText = recipe.name;
 
-			document.getElementById("time").innerText = recipe.time;
+			document.getElementById(
+				"time"
+			).innerText = ` - ${recipe.time} minutes`;
 
 			const tagsEle = document.getElementById("tags");
 			recipe.tag.forEach((tag) => {
