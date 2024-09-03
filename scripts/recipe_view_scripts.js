@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const recipeId = window.location.pathname.split("/").pop();
-	fetch(`/recipes/${recipeId}`)
+	fetch(`/api/recipes/${recipeId}`)
 		.then((response) => response.json())
 		.then((recipe) => {
 			document.getElementById("name").innerText = recipe.name;

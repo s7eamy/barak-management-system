@@ -17,7 +17,7 @@ function addProduct(event) {
 		date: currentDate,
 	};
 	addToTable(product, false);
-	fetch("/products", {
+	fetch("/api/products", {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -46,7 +46,7 @@ function removeProduct(event) {
 		quantity: cells[1].textContent,
 		date: cells[2].textContent,
 	};
-	fetch("/products", {
+	fetch("/api/products", {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
@@ -95,7 +95,7 @@ function addToTable(product, exists) {
 }
 
 window.onload = () => {
-	fetch("/products")
+	fetch("/api/products")
 		.then((response) => response.json())
 		.then((products) => {
 			products.forEach((product) => addToTable(product, true));

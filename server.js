@@ -44,10 +44,10 @@ app.get("/recipe-book/add-recipe", (req, res) => {
 });
 
 // Set up shopping list routes
-app.use("/products", productRoutes);
+app.use("/api/products", productRoutes);
 
 // Set up recipe book routes
-app.use("/recipes", recipeRoutes);
+app.use("/api/recipes", recipeRoutes);
 
 // Start the server
 app.listen(3000, () => {

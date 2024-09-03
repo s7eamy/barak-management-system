@@ -1,5 +1,5 @@
 function fetchStoredRecipes() {
-	fetch("../recipes", {
+	fetch("../api/recipes", {
 		method: "GET",
 		headers: {
 			"Content-Type": "application/json",
@@ -15,7 +15,7 @@ function deleteRecipe(event) {
 		event.target.parentElement.parentElement.querySelector(
 			"h3"
 		).textContent;
-	fetch("../recipes", {
+	fetch("../api/recipes", {
 		method: "DELETE",
 		headers: {
 			"Content-Type": "application/json",
