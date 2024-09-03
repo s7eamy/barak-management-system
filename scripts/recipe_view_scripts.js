@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			recipe.tag.forEach((tag) => {
 				const tagEle = document.createElement("span");
 				tagEle.innerText = tag;
+				tagEle.classList.add(tag.toLowerCase());
+				tagEle.classList.add("badge");
+				tagEle.textContent = tag.toUpperCase();
 				tagsEle.appendChild(tagEle);
 			});
 
